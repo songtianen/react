@@ -1,7 +1,0 @@
-111
-222
-333
-444
-555
-暂存区用 git reset HEAD filename 撤回|第二步：用git checkout -- file 撤销
-git diff 查看 是否在提交 git diff HEAD -- file 查看是否在暂存区，是否commit了
