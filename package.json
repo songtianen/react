@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "react-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/songtianen/react/issues"
   },
-  "homepage": "https://github.com/songtianen/react#readme"
+  "homepage": "https://github.com/songtianen/react#readme",
+  "devDependencies": {
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
 }
