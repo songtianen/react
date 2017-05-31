@@ -25,8 +25,8 @@ module.exports = {
   },
   output: {
     path: __dirname + "/build",
-    filename: "[name].[hash:8].bundle.js",
-    publicPath: '/'
+    filename: "[name].[hash:8].js",
+     publicPath: './'
           },
   resolve:{
       extensions:['.js','.jsx']
@@ -104,7 +104,7 @@ module.exports = {
         }),
 
         // 分离CSS和JS文件
-        new ExtractTextPlugin('/css/[name].[hash:8].css'),
+        new ExtractTextPlugin('css/[name].[hash:8].css'),
         // 提供公共代码
         new webpack.optimize.CommonsChunkPlugin({
           name: 'vendor',
