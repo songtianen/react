@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "view":"node view.js",
     "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
     "mock": "node --harmony ./mock/server.js",
     "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors"
@@ -46,6 +47,7 @@
     "immutable": "^3.8.1",
     "react": "^15.3.1",
     "react-addons-css-transition-group": "^15.3.1",
+    "react-addons-perf": "^15.4.2",
     "react-addons-pure-render-mixin": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",

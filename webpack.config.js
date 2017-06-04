@@ -6,8 +6,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 // var nodeModulesPath = path.resolve(__dirname, 'node_modules')
-// console.log(process.env.NODE_ENV)
-
+ console.log(`bibibi!!!${process.env.NODE_ENV}`)
+console.log(process.env.npm_lifecycle_event)
 module.exports = {
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {

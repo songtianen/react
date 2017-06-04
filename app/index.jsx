@@ -1,15 +1,17 @@
 import React from 'react'
 import { render } from 'react-dom'
 import './static/css/common.less'
-class Hello extends React.Component{
-  render(){
-    return(
-      <p>hello world 456 </p>
-    )
-  }
+import Hello from './containers/Hello/index'
+import Todo from './containers/Todo/index'
+// 浏览器 内 console -性能测试
+import Perf from 'react-addons-perf'
+if(__DEV__){
+  window.Perf = Perf
 }
-
 render(
-    <Hello/>,
+    <div>
+      <Todo/>
+      <Hello/>
+    </div>,
     document.getElementById('root')
 )
