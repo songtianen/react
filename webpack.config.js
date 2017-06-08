@@ -20,6 +20,13 @@ module.exports = {
         extensions:[ '.js','.jsx']
     },
     devServer: {
+      // 设置代理服务器
+      proxy:{
+        '/api':{
+          target:'http://localhost:3000',
+          secure:false
+        }
+      },
         contentBase: "./public", //本地服务器所加载的页面所在的目录
         // colors: true, //终端中输出结果为彩色
         historyApiFallback: true, //不跳转
