@@ -9,10 +9,11 @@ import {hashHistory} from 'react-router'
 import RouteMap from './router/routerMap'
 // --------------------------------------------------
 // 3. redux
+// 3.引入provider
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
+import configureStore from './redux/store/configureStore'
 import Helloo from './containers/Hello/Hello'
-// 3.创建redux 的store 对象
+// 2.第2步骤 创建store 之后 把store 传入 react 之中 
 const store = configureStore()
 // --------------------------------------------------
 // 引用并且执行redux-demo
@@ -29,6 +30,7 @@ if(__DEV__){
  import { getData,postData } from './fetch/data'
 getData();
 postData();
+console.log('1'+'1');
 
 
 render(

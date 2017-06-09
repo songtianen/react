@@ -1,10 +1,6 @@
 import { createStore } from 'redux'
-
 export default function(){
-
-
   //1. 定义计算规则，即 reducer
-
   function counter(state = 0 , action){
     switch (action.type) {
         case 'IN':
