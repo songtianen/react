@@ -2,16 +2,16 @@ import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-class NotFound extends React.Component{
+class User extends React.Component{
     constructor(props,context){
       super(props,context);
       this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render(){
       return(
-        <div>404NotFound</div>
+        <div>User</div>
       )
     }
 }
 
-export default NotFound
+export default User

@@ -1,15 +1,18 @@
+
 import React from 'react'
-import {Link} from 'react-router'
+// 导入性能优化
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 class Home extends React.Component{
-  render(){
-    return(
-      <div>
-        <p>Home页</p>
-        <Link to="/list">link 下一页</Link>
-      </div>
-    )
-  }
+    constructor(props,context){
+      super(props,context);
+      this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    }
+    render(){
+      return(
+        <h1>home</h1>
+      )
+    }
 }
 
 export default Home
