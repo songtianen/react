@@ -1,32 +1,26 @@
 import React from 'react'
+// 导入性能优化
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-class List extends React.Component{
-  constructor(props,context){
-    super(props,context)
-    this.state={
+import ListItem from './item'
 
+
+class ListComponent extends React.Component{
+    constructor(props,context){
+      super(props,context);
+      this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
-  }
-  render(){
-    const data = this.props.todos;
-
-    return(
-      <div>
-      <ul style={{marginTop:'10px',fontSize:'20px',lineHeight:'30px'}}>
-        {data.map((item,index)=>{
-          return <li key={index} onClick={this.clickHandler.bind(this,item.flag)}>{item.text}</li>
-        })}
-      </ul>
-      </div>
-    )
-  }
-
-
-// 删除
-  clickHandler(flag){
-    this.props.deleteFn(flag)
-
-  }
+    render(){
+      const data = this.props.data
+      return(
+        <div>
+          {data.map((item,index) => {
+            {/*把复杂 的 一些小元素 放在单独的一个组件中*/}
+            return <ListItem key={index} data = {item}/>
+          })}
+        </div>
+      )
+    }
 }
 
-export default List
+export default ListComponent

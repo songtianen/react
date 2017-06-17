@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import './static/css/common.less'
+import './static/css/font.css'
 
 // --------------------------------------------------
 // router
@@ -26,10 +27,9 @@ if(__DEV__){
 }
 // --------------------------------------------------
  // import { getData,postData } from './fetch/test'
- import { getData,postData } from './fetch/data'
-getData();
-postData();
-console.log('1'+'1');
+//  import { getData,postData } from './fetch/data'
+// getData();
+// postData();
 
 
 render(
