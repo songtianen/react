@@ -2,6 +2,8 @@ import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+import { Link } from 'react-router'
+
 import './style.less'
 class HomeHeader extends React.Component{
     constructor(props,context){
@@ -12,9 +14,11 @@ class HomeHeader extends React.Component{
       return(
         <div id="home-header" className="clear-fix">
           <div className="float-left">
-            <span>{this.props.cityName}</span>
-            &nbsp;
-            <i className="icon-angle-down"></i>
+            <Link to="city">
+              <span>{this.props.cityName}</span>
+              &nbsp;
+              <i className="icon-angle-down"></i>
+            </Link>
           </div>
           <div className="float-right">
             <i className="icon-user"></i>
