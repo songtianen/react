@@ -45,7 +45,6 @@ class ListSubpage extends React.Component{
     loadFirstPageData(){
         const cityName = this.props.cityName;
         const result = getListData(cityName,0);
-        console.log(result);
         this.resultHandle(result);
     }
 
@@ -55,19 +54,15 @@ class ListSubpage extends React.Component{
       this.setState({
         isLoadMore:true
       })
-
       const cityName = this.props.cityName
       const page = this.state.page //下一页的页码
       const result = getListData(cityName,page)
       this.resultHandle(result)
-
       // 增加page 的  基数
       this.setState({
         page:page+1,
         isLoadMore:false
       })
-
-
     }
     // 数据处理函数
     resultHandle(result){
