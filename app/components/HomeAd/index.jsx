@@ -12,7 +12,6 @@ class HomeAd extends React.Component {
     }
     render() {
       // 测试数据有没有传递过来
-      console.log(`swwwwwwwww`,this.props.data)
 
         return (
             <div id="home-ad">

@@ -29,7 +29,6 @@ class LoadMore extends React.Component{
         const loadmoreFn = this.props.loadMoreData;
         // 拿到 dom 元素
         const wraper = this.refs.wraper;
-        console.log(wraper)
 
       // 截流 函数 连续触发 较少，
       let timeoutId;
