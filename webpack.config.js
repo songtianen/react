@@ -6,8 +6,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 // var nodeModulesPath = path.resolve(__dirname, 'node_modules')
-// console.log(process.env.NODE_ENV)
-
+ console.log(`bibibi!!!${process.env.NODE_ENV}`)
+console.log(`sdsssdsdsdsdsd${process.env.__DEV__}`)
+console.log(process.env.npm_lifecycle_event)
 module.exports = {
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
@@ -19,6 +20,13 @@ module.exports = {
         extensions:[ '.js','.jsx']
     },
     devServer: {
+      // 设置代理服务器
+      proxy:{
+        '/api':{
+          target:'http://localhost:3000',
+          secure:false
+        }
+      },
         contentBase: "./public", //本地服务器所加载的页面所在的目录
         // colors: true, //终端中输出结果为彩色
         historyApiFallback: true, //不跳转
