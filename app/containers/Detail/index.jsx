@@ -7,6 +7,8 @@ import Header from '../../components/Header'
 import Info from './subpage/info'
 import Comment from './subpage/Comment'
 
+import Buy from './subpage/buy.jsx'
+
 
 class Detail extends React.Component{
     constructor(props,context){
@@ -20,6 +22,7 @@ class Detail extends React.Component{
         <div>
           <Header title="商户详情"/>
           <Info id={id}/>
+          <Buy id={id}/>
           <Comment id = {id}/>
         </div>
       )

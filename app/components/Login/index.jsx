@@ -32,6 +32,8 @@ class Login extends React.Component{
       )
     }
     changeHandle(e){
+      //约束性组件
+      
       this.setState({
         phone:e.target.value
       })

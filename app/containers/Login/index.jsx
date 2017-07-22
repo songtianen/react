@@ -62,9 +62,9 @@ class Login extends React.Component{
     // 登陆之后的业务处理 用智能组件来做
     loginHandle(username){
       //保存用户名
-      const actions = this.props.userInfoActions
+      const actions = this.props.userInfoActions;
       let userinfo = this.props.userinfo;
-      userinfo.username = username
+      userinfo.username = username;
       actions.update(userinfo)
       //跳转连接
       const params = this.props.params

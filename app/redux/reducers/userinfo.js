@@ -12,3 +12,4 @@ export default function userinfo(state = initialState,action){
     return state
   }
 }
+ 
