@@ -30,8 +30,7 @@ class Buy extends React.Component{
     }
 
     componentDidMount() {
-      // console.log('123',this.props.store)
-      // console.log('456',this.props.storeActions)
+
       this.checkStoreState()
     }
 
@@ -52,6 +51,44 @@ class Buy extends React.Component{
         })
     }
 
+    // 验证登陆
+    loginCheck(){
+      const id = this.props.id
+      const userinfo = this.props.userinfo
+      if(!userinfo.username){
+        //跳转到登陆页面
+        hashHistory.push('Login/'+ encodeURIComponent('/detail/'+id))
+        return false;
+      }
+      return true;
+    }
+
+    storeHandle(){
+      //收藏事件
+
+      // 1 验证登陆
+      const loginFlag = this.loginCheck()
+      if(!loginFlag){
+        return
+      }
+
+      const id = this.props.id;
+      const storeActions = this.props.storeActions;
+      if(this.state.isStore){
+        //当前商户已经被收藏，点击时取消收藏
+        storeActions.rm({id:id})
+      }else {
+        // 当前商户尚未被收藏，点击时要执行收藏
+        storeActions.add({id:id})
+      }
+      // 修改状态
+      this.setState({
+        isStore:!this.state.isStore
+      })
+    }
+
+
+
     buyHandle(){
       //购买事件
       // 1 验证登陆
@@ -67,43 +104,7 @@ class Buy extends React.Component{
       hashHistory.push('/User')
 
     }
-    storeHandle(){
-      //收藏事件
 
-      // 1 验证登陆
-      const loginFlag = this.loginCheck()
-      if(!loginFlag){
-        return "ssssssss"
-      }
-      console.log('balabalabala')
-
-      const id = this.props.id;
-      const storeActions = this.props.storeActions;
-      if(this.state.isStore){
-        //当前商户已经被收藏，点击时取消收藏
-        storeActions.rm({id:id})
-      }else {
-        // 当前商户尚未被收藏，点击时要执行收藏
-        storeActions.add({id:id})
-      }
-      // 修改状态
-      this.setState({
-        isStore:!this.state.isStore
-      })
-      console.log('balabalabala')
-    }
-
-    // 验证登陆
-    loginCheck(){
-      const id = this.props.id
-      const userinfo = this.props.userinfo
-      if(!userinfo.username){
-        //跳转到登陆页面
-        hashHistory.push('Login/'+ encodeURIComponent('/detail/'+id))
-        return false;
-      }
-      return true;
-    }
 
 }
     function mapStateToProps(state){

@@ -11,7 +11,6 @@ class Login extends React.Component{
       }
     }
     render(){
-      console.log(this.props.loginHandle)
       return(
         <div id = "login-container">
           <div className="input-container phone-container">
@@ -33,7 +32,7 @@ class Login extends React.Component{
     }
     changeHandle(e){
       //约束性组件
-      
+
       this.setState({
         phone:e.target.value
       })

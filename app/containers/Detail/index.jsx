@@ -20,7 +20,7 @@ class Detail extends React.Component{
       const id = this.props.params.id
       return(
         <div>
-          <Header title="商户详情"/>
+          <Header title="商户详情" type="share"/>
           <Info id={id}/>
           <Buy id={id}/>
           <Comment id = {id}/>

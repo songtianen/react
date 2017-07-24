@@ -10,7 +10,7 @@ export default function store (state = initialState ,action){
       state.unshift(action.data)
       return state
     case actionTypes.STORE_RM:
-      state.filter(item => {
+      return state.filter(item => {
         if(item.id !== action.data.id){
           return item
         }
