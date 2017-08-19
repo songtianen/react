@@ -5,7 +5,7 @@ import './static/css/font.css'
 
 // --------------------------------------------------
 // router
-import {hashHistory} from 'react-router'
+import createHashHistory from 'history/createBrowserHistory'
 import RouteMap from './router/routerMap'
 // --------------------------------------------------
 // 3. redux
@@ -26,12 +26,10 @@ if(__DEV__){
   window.Perf = Perf
 }
 // --------------------------------------------------
- // import { getData,postData } from './fetch/test'
-//  import { getData,postData } from './fetch/data'
-// getData();
-// postData();
 
 
 render(
-  <Provider store={store}><RouteMap history={hashHistory}/></Provider>,
+  <Provider store={store}>
+    <RouteMap history={createHashHistory()} />
+  </Provider>,
   document.getElementById('root'))

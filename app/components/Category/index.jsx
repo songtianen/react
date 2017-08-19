@@ -1,7 +1,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ReactSwipe from 'react-swipe'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import './style.less'
 

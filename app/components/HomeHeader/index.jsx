@@ -1,12 +1,12 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
-import { Link,hashHistory } from 'react-router'
+import {Link} from 'react-router-dom'
 import SearchInput from '../SearchInput'
 
 import './style.less'
 class HomeHeader extends React.Component{
+
     constructor(props,context){
       super(props,context);
       this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -26,7 +26,7 @@ class HomeHeader extends React.Component{
             </Link>
           </div>
           <div className="float-right">
-            <Link to="/Login">
+            <Link to="Login">
               <i className="icon-user"></i>
             </Link>
             </div>
@@ -41,8 +41,8 @@ class HomeHeader extends React.Component{
     }
 
     enterHandle(value){
-
-      hashHistory.push('/search/all/' + encodeURIComponent(value))
+      const history = this.props.history
+      history.push('/search/all/' + encodeURIComponent(value))
     }
 
 }

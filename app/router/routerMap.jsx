@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route,Router,IndexRoute ,hashHistory } from 'react-router'
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom'
+import {matchPath} from 'react-router'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import App from '../containers'
@@ -16,24 +17,38 @@ class RouteMap extends React.Component{
         super(props,context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
       }
+      updateHandle(){
+        //统计pv
+      }
   render(){
-    return(
 
-      <Router history = {this.props.history}>
-        <Route path='/' component={App}>
-          <IndexRoute component={Home}/>
-          <Route path='city' component={City}/>
-          <Route path='Login(/:router)' component={Login}/>
-          <Route path='User' component={User}/>
-          <Route path='search/:category(/:keyword)' component={Search}/>
-          <Route path='detail/:id' component={Detail}/>
-          <Route path="*" component={NotFound}/>
-        </Route>
+    return(
+      <Router history={this.props.history}  >
+      <div>
+        <Route  component={(props) => (
+          <App {...props}>
+          <Switch>
+            <Route  exact path='/' component={Home}/>
+            <Route  path='/city' component={City}/>
+            <Route  path='/Login/:router?' component={Login}/>
+            <Route path='/User' component={User}/>
+            <Route path='/search/:category/:keyword?' component={Search}/>
+            <Route path='/detail/:id' component={Detail}/>
+            <Route path="*" component={NotFound}/>
+          </Switch>
+          </App>
+        )}>
+         </Route>
+         </div>
       </Router>
 
     )
   }
 
+
+componentDidMount() {
+  console.log('........',this.props)
+}
 
 }
 export default RouteMap

@@ -1,7 +1,7 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import {hashHistory} from 'react-router'
+
 import './style.less'
 class Header extends React.Component{
     constructor(props,context){
@@ -18,13 +18,12 @@ class Header extends React.Component{
         </div>
       )
     }
-
     clickHandle(){
-
+      console.log('backRouter',this.props)
       const backRouter = this.props.backRouter;
-
       if(backRouter){
-        hashHistory.push(backRouter)
+        const history = this.props.history
+        history.push(backRouter)
       }else {
         window.history.back()
       }

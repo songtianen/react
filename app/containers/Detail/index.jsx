@@ -17,12 +17,12 @@ class Detail extends React.Component{
     }
     render(){
       // 获取商户的 id
-      const id = this.props.params.id
+      const id = this.props.match.params.id
       return(
         <div>
           <Header title="商户详情" type="share"/>
           <Info id={id}/>
-          <Buy id={id}/>
+          <Buy id={id} history={this.props.history}/>
           <Comment id = {id}/>
         </div>
       )

@@ -1,7 +1,7 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import {hashHistory} from 'react-router'
+
 // ----react-redux
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
@@ -16,6 +16,7 @@ import CurrentCity from '../../components/CurrentCity'
 import CityList from '../../components/CityList'
 
 class City extends React.Component{
+
     constructor(props,context){
       super(props,context);
       this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -47,8 +48,10 @@ class City extends React.Component{
 
       // 修改localstorage
       LocalStore.setItem(CITYNAME,newCity)
+      console.log(this.props);
       // 跳转到首页
-      hashHistory.push('/');
+      this.props.history.push('/');
+      // console.log('1111111',this.props)
 
     }
 }

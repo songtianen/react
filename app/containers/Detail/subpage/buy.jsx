@@ -5,11 +5,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { hashHistory } from 'react-router'
 import * as userInfoActionsFromOtherFile from '../../../redux/actions/userinfo'
-
 import * as storeActionsFromFile from '../../../redux/actions/store.js'
-
 import BuyAndStore from '../../../components/BuyAndStore'
 
 class Buy extends React.Component{
@@ -57,10 +54,12 @@ class Buy extends React.Component{
       const userinfo = this.props.userinfo
       if(!userinfo.username){
         //跳转到登陆页面
-        hashHistory.push('Login/'+ encodeURIComponent('/detail/'+id))
-        return false;
+        const hashHistory = this.props.history
+
+        hashHistory.push('/Login/'+ encodeURIComponent('/detail/'+id))
+        return false
       }
-      return true;
+      return true
     }
 
     storeHandle(){
@@ -101,6 +100,8 @@ class Buy extends React.Component{
       // 。。。
 
       // 跳转到用户主页
+      const hashHistory = this.props.history
+
       hashHistory.push('/User')
 
     }
