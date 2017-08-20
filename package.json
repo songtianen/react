@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "view": "node view.js",
-    "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
+    "start": "NODE_ENV=dev webpack-dev-server ",
     "mock": "node --harmony ./mock/server.js",
-    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors"
+    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js "
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "es6-promise": "^3.3.1",
+    "history": "^4.6.3",
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "react": "^15.3.1",
@@ -53,7 +54,9 @@
     "react-addons-pure-render-mixin": "^15.5.2",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
-    "react-router": "^2.8.1",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^5.0.0-alpha.6",
     "react-swipe": "^5.0.8",
     "redux": "^3.5.2",
     "swipe-js-iso": "^2.0.3",

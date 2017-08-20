@@ -1,10 +1,8 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { hashHistory } from 'react-router'
 import * as userInfoActionsFromOtherFile from '../../redux/actions/userinfo'
 // 引入header
 import Header from '../../components/Header'
@@ -56,22 +54,26 @@ class Login extends React.Component{
     // 区用户中心页面
     goUserPage(){
       // 没有登陆就调到个人中心。
-      hashHistory.push('/User');
+      const history = this.props.history
+
+      history.push('/User');
     }
 
     // 登陆之后的业务处理 用智能组件来做
     loginHandle(username){
+      console.log('mmm',this.props.match.params.router)
       //保存用户名
       const actions = this.props.userInfoActions;
       let userinfo = this.props.userinfo;
       userinfo.username = username;
       actions.update(userinfo)
       //跳转连接
-      const params = this.props.params
+      const params = this.props.match.params
       const router = params.router
       if(router) {
         //跳转指定的页面
-        hashHistory.push(router)
+        const hashHistory = this.props.history
+        hashHistory.push(decodeURIComponent(router))
       }else {
         //跳转到默认页面 就是 用户中心页面
         this.goUserPage();

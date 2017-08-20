@@ -1,13 +1,12 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
-import { Link,hashHistory } from 'react-router'
 import SearchInput from '../SearchInput'
 
 // 引进
 import './style.less'
 class SearchHeader extends React.Component{
+
     constructor(props,context){
       super(props,context);
       this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -23,18 +22,19 @@ class SearchHeader extends React.Component{
         <div className="input-container">
           <i className="icon-search"></i>
           &nbsp;
-          <SearchInput value={this.props.keyword || ""} enterHandle = {this.enterHandle.bind(this)}/>
+          <SearchInput value={this.props.keyword || ""} enterHandle = {this.enterHandle.bind(this)} />
         </div>
 
       </div>
 
       )
     }
+
 clickHandle(){
   window.history.back()
 }
 enterHandle(value){
-  hashHistory.push('/search/all/'+ encodeURIComponent(value))
+  this.props.history.push('search/all/'+ encodeURIComponent(value))
 }
 
 

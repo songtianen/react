@@ -1,7 +1,7 @@
 import React from 'react'
 // 导入性能优化
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 import './style.less'
 
 class ListItem extends React.Component{

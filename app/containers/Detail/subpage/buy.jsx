@@ -5,11 +5,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { hashHistory } from 'react-router'
 import * as userInfoActionsFromOtherFile from '../../../redux/actions/userinfo'
-
 import * as storeActionsFromFile from '../../../redux/actions/store.js'
-
 import BuyAndStore from '../../../components/BuyAndStore'
 
 class Buy extends React.Component{
@@ -30,8 +27,7 @@ class Buy extends React.Component{
     }
 
     componentDidMount() {
-      // console.log('123',this.props.store)
-      // console.log('456',this.props.storeActions)
+
       this.checkStoreState()
     }
 
@@ -52,30 +48,28 @@ class Buy extends React.Component{
         })
     }
 
-    buyHandle(){
-      //购买事件
-      // 1 验证登陆
-      const loginFlag = this.loginCheck()
-      if(!loginFlag){
-        return
+    // 验证登陆
+    loginCheck(){
+      const id = this.props.id
+      const userinfo = this.props.userinfo
+      if(!userinfo.username){
+        //跳转到登陆页面
+        const hashHistory = this.props.history
+
+        hashHistory.push('/Login/'+ encodeURIComponent('/detail/'+id))
+        return false
       }
-      //购买流程
-      // 。。。
-      // 。。。
-
-      // 跳转到用户主页
-      hashHistory.push('/User')
-
+      return true
     }
+
     storeHandle(){
       //收藏事件
 
       // 1 验证登陆
       const loginFlag = this.loginCheck()
       if(!loginFlag){
-        return "ssssssss"
+        return
       }
-      console.log('balabalabala')
 
       const id = this.props.id;
       const storeActions = this.props.storeActions;
@@ -90,20 +84,28 @@ class Buy extends React.Component{
       this.setState({
         isStore:!this.state.isStore
       })
-      console.log('balabalabala')
     }
 
-    // 验证登陆
-    loginCheck(){
-      const id = this.props.id
-      const userinfo = this.props.userinfo
-      if(!userinfo.username){
-        //跳转到登陆页面
-        hashHistory.push('Login/'+ encodeURIComponent('/detail/'+id))
-        return false;
+
+
+    buyHandle(){
+      //购买事件
+      // 1 验证登陆
+      const loginFlag = this.loginCheck()
+      if(!loginFlag){
+        return
       }
-      return true;
+      //购买流程
+      // 。。。
+      // 。。。
+
+      // 跳转到用户主页
+      const hashHistory = this.props.history
+
+      hashHistory.push('/User')
+
     }
+
 
 }
     function mapStateToProps(state){
